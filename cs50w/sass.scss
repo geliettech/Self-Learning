@@ -1,0 +1,29 @@
+@mixin basic-styles($size) {
+    font-size: $size;
+    padding: $size;
+    border-radius: $size + 10rem;
+}
+
+$primary-color: lightgreen;
+
+body {
+    background: $primary-color;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .heading {
+        @include basic-styles(3rem);
+        color: white;
+        background: darken($primary-color, 40%);
+    }
+
+    p {
+        @include basic-styles(2rem);
+        background: white;
+        color: darken($primary-color, 40%);
+    }
+}
