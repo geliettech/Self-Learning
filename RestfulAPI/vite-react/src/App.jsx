@@ -6,18 +6,16 @@ const URL = 'https://dummyjson.com/test';
 function App() {
   const [temp, setTemp] = useState(0)
 
-  useEffect(()=>{
+  useEffect(() => {
     const fetchData = async () => {
-      // try {
-        const data = await fetch(URL);
-        data.json().then((json) => {
-          console.log(json);
-          setTemp(json)
-        })
-      // }
+      const data = await fetch(URL);
+      data.json().then((json) => {
+        console.log(json);
+        setTemp(json)
+      })
     }
     fetchData();
-  },[])
+  }, [])
 
 
 
