@@ -22,6 +22,7 @@ def add(request):
             task = form.cleaned_data["task"]
             request.session["tasks"] += [task]
             # return HttpResponseRedirect(reverse("tasks:index"))
+            return HttpResponseRedirect(reverse("index"))
         else:
             return render(request, "tasks/add.html",{
                 "form": form
