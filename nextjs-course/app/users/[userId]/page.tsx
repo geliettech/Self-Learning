@@ -1,3 +1,5 @@
+import { notFound } from "next/navigation";
+
 const fetchUser = async (userId: string) => {
   const res = await fetch(
     `https://jsonplaceholder.typicode.com/users/${userId}`
@@ -14,9 +16,13 @@ const UserPage = async ({
 }: {
   params: Promise<{ userId: string }>;
 }) => {
-  
+
   const { userId } = await params;
   const user = await fetchUser(userId);
+
+  if(!user){
+    notFound()
+  }
 
   return (
     <div>
